@@ -12,23 +12,29 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!nameRegex.test(nameInput)) {
             document.getElementById('errorname').innerHTML = "Use only alphabets/Please fill it";
         }
+        else{
+            document.getElementById('errorname').innerHTML = "";
+        }
 
         if (!emailRegex.test(emailInput)) {
             document.getElementById('erroremail').innerHTML = "Enter a valid email address";
+        }
+        else{
+            document.getElementById('erroremail').innerHTML = "";
         }
 
            if (!numberRegex.test(commentsInput)) {
             document.getElementById('commentsmsg').innerHTML = "Please enter valid comments";
         }
-
-   
-        return nameRegex.test(nameInput) && emailRegex.test(emailInput) && numberRegex.test(commentsInput);
+        else{
+            document.getElementById('commentsmsg').innerHTML = "";
+        }
     }
 
    
     document.getElementById('form').addEventListener('submit', function (e) {
         if (!validate()) {
-            e.preventDefault(); // Prevent form submission if validation fails
+            e.preventDefault();
         }
     });
 });
